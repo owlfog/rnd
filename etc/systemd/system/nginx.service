@@ -1,0 +1,19 @@
+[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=network.target remote-fs.target nss-lookup.target remperm.service
+Requires=remperm.service
+
+[Service]
+Type=forking
+User=nginx
+PIDFile=/opt/nginx/logs/nginx.pid
+ExecStart=/opt/nginx/sbin/nginx -c /opt/rnd/nginx.conf
+ExecStop=/opt/nginx/sbin/nginx -s stop
+ExecReload=/opt/nginx/sbin/nginx -s reload
+TimeoutStopSec=5
+KillMode=mixed
+PrivateTmp=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

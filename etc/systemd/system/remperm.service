@@ -1,0 +1,14 @@
+[Unit]
+Description=Job that remout tmp and perm nginx
+After=syslog.target network.target rsyncrnd.service remote-fs.target nss-lookup.target
+Requires=rsyncrnd.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=sudo chown -R nginx:nginx /opt/rnd/
+ExecStart=sudo rm -rf /tmp/rnd
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
