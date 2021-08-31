@@ -1,13 +1,13 @@
 [Unit]
 Description=Job that runs git clone
 After=syslog.target network.target remote-fs.target nss-lookup.target
-Wants=network-online.target
+Requires=network-online.target
 
 [Service]
 Type=oneshot
 User=root
 Group=root
-ExecStart=git clone https://github.com/vermyter/rnd.git /tmp/rnd
+ExecStart=git clone https://github.com/owlfog/rnd.git /tmp/rnd
 RemainAfterExit=yes
 
 [Install]

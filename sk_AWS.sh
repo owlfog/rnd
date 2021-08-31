@@ -17,7 +17,7 @@ perl-ExtUtils-Embed \
 GeoIP-data \
 GeoIP \
 GeoIP-devel 
-git clone https://github.com/vermyter/rnd.git  /opt/rnd/
+git clone https://github.com/owlfog/rnd.git  /opt/rnd/
 wget https://nginx.org/download/nginx-1.21.1.tar.gz 
 tar zxvf nginx-1.21.1.tar.gz
 cd nginx-1.21.1
@@ -36,8 +36,7 @@ make install
 useradd --system --home /var/cache/nginx --shell /sbin/nologin --comment "nginx user" --user-group nginx
 mkdir -p /var/cache/nginx
 chown -R nginx:nginx /var/cache/nginx
-chown -R nginx:nginx /opt/nginx/conf.d
-chown -R nginx:nginx /opt/rnd/
+chown -R nginx:nginx /opt/
 cp /opt/rnd/etc/systemd/system/nginx.service /etc/systemd/system/nginx.service
 cp /opt/rnd/etc/systemd/system/gitclone.service /etc/systemd/system/gitclone.service
 cp /opt/rnd/etc/systemd/system/remperm.service /etc/systemd/system/remperm.service

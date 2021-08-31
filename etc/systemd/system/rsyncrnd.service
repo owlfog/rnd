@@ -1,7 +1,7 @@
 [Unit]
 Description=Job that runs rsync
 After=syslog.target network.target gitclone.service remote-fs.target nss-lookup.target
-Wants=gitclone.service
+Requires=gitclone.service
 
 [Service]
 User=root
