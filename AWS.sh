@@ -37,13 +37,13 @@ useradd --system --home /var/cache/nginx --shell /sbin/nologin --comment "nginx 
 mkdir -p /var/cache/nginx
 chown -R nginx:nginx /var/cache/nginx
 chown -R nginx:nginx /opt/
+rm -rf nginx-1.21.1.tar.gz nginx-1.21.1
 cp /opt/rnd/etc/systemd/system/nginx.service /etc/systemd/system/nginx.service
 cp /opt/rnd/etc/systemd/system/gitclone.service /etc/systemd/system/gitclone.service
 cp /opt/rnd/etc/systemd/system/remperm.service /etc/systemd/system/remperm.service
 cp /opt/rnd/etc/systemd/system/rsyncrnd.service /etc/systemd/system/rsyncrnd.service
 chown -R nginx:nginx /etc/systemd/system/nginx.service
 systemctl daemon-reload
-systemctl start nginx
 systemctl enable nginx
 systemctl enable gitclone
 systemctl enable remperm
